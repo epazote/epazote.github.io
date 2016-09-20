@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>epazote</title>
+    <link>https://epazote.io/</link>
+    <description>Recent content on epazote</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Sep 2016 21:28:39 +0200</lastBuildDate>
+    <atom:link href="https://epazote.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>how it works</title>
+      <link>https://epazote.io/post/how-it-works/</link>
+      <pubDate>Tue, 20 Sep 2016 21:28:39 +0200</pubDate>
+      
+      <guid>https://epazote.io/post/how-it-works/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>🌿  epazote</title>
+      <link>https://epazote.io/about/</link>
+      <pubDate>Tue, 20 Sep 2016 21:26:25 +0200</pubDate>
+      
+      <guid>https://epazote.io/about/</guid>
+      <description>
+
+&lt;h1 id=&#34;what-is-epazote&#34;&gt;What is epazote?&lt;/h1&gt;
+
+&lt;p&gt;An automated HTTP (microservices) supervisor.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
