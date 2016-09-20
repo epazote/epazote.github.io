@@ -47,6 +47,17 @@ alerts if desired.&lt;/p&gt;
 
 &lt;h2 id=&#34;why&#34;&gt;Why ?&lt;/h2&gt;
 
+&lt;p&gt;Because of the need to monitor with simplicity for example:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A simple check (Status 200 OK) every 30 seconds.&lt;/li&gt;
+&lt;li&gt;Receive an email/http alert if the SSL certifciate is about to expire.&lt;/li&gt;
+&lt;li&gt;Check if the application is serving the proper headers.&lt;/li&gt;
+&lt;li&gt;Restart DB/App/etc based on headers or staus codes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
 &lt;p&gt;Once your site/application is up and running, it can become idle and
 unresponsive, your &lt;a href=&#34;https://immortal.run&#34;&gt;supervisor&lt;/a&gt; will not notice
 this, since in most of the cases is just responsible for keeping your
