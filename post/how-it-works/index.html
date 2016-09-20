@@ -64,7 +64,22 @@
                     </h2>
                 </header>
                 <section id="post-body">
-                    
+                    <p>In its basic way of operation,  <strong>Epazote</strong> periodically checks the services endpoints
+&ldquo;<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Locator">URLs</a>&ldquo;
+by doing an <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">HTTP GET Request</a>,
+based on the response <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">Status code</a>,
+<a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">Headers</a> or
+either the
+<a href="https://en.wikipedia.org/wiki/HTTP_message_body">body</a>, it executes a command.</p>
+
+<p>In most scenarios, is desired to apply a command directly to the application in
+cause, like a signal (<code>kill -HUP</code>), or either a restart (<code>sv restart app</code>),
+therefore in this case <strong>Epazote</strong> and the application should be running on the
+same server.</p>
+
+<p><strong>Epazote</strong> can also work in a standalone mode by only monitoring and sending
+alerts if desired.</p>
+
                 </section>
             </article>
             <footer id="post-meta" class="clearfix">

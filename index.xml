@@ -15,7 +15,22 @@
       <pubDate>Tue, 20 Sep 2016 21:28:39 +0200</pubDate>
       
       <guid>https://epazote.io/post/how-it-works/</guid>
-      <description></description>
+      <description>&lt;p&gt;In its basic way of operation,  &lt;strong&gt;Epazote&lt;/strong&gt; periodically checks the services endpoints
+&amp;ldquo;&lt;a href=&#34;https://en.wikipedia.org/wiki/Uniform_Resource_Locator&#34;&gt;URLs&lt;/a&gt;&amp;ldquo;
+by doing an &lt;a href=&#34;https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods&#34;&gt;HTTP GET Request&lt;/a&gt;,
+based on the response &lt;a href=&#34;https://en.wikipedia.org/wiki/List_of_HTTP_status_codes&#34;&gt;Status code&lt;/a&gt;,
+&lt;a href=&#34;https://en.wikipedia.org/wiki/List_of_HTTP_header_fields&#34;&gt;Headers&lt;/a&gt; or
+either the
+&lt;a href=&#34;https://en.wikipedia.org/wiki/HTTP_message_body&#34;&gt;body&lt;/a&gt;, it executes a command.&lt;/p&gt;
+
+&lt;p&gt;In most scenarios, is desired to apply a command directly to the application in
+cause, like a signal (&lt;code&gt;kill -HUP&lt;/code&gt;), or either a restart (&lt;code&gt;sv restart app&lt;/code&gt;),
+therefore in this case &lt;strong&gt;Epazote&lt;/strong&gt; and the application should be running on the
+same server.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Epazote&lt;/strong&gt; can also work in a standalone mode by only monitoring and sending
+alerts if desired.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -29,6 +44,22 @@
 &lt;h1 id=&#34;what-is-epazote&#34;&gt;What is epazote?&lt;/h1&gt;
 
 &lt;p&gt;An automated HTTP (microservices) supervisor.&lt;/p&gt;
+
+&lt;h2 id=&#34;why&#34;&gt;Why ?&lt;/h2&gt;
+
+&lt;p&gt;Once your site/application is up and running, it can become idle and
+unresponsive, your &lt;a href=&#34;https://immortal.run&#34;&gt;supervisor&lt;/a&gt; will not notice
+this, since in most of the cases is just responsible for keeping your
+application process up and running no matter how it is behaving, therefore
+exists the need to monitor the status of the application and based on the
+responses take actions, here is where &lt;strong&gt;Epazote&lt;/strong&gt; comes into action.&lt;/p&gt;
+
+&lt;p&gt;When doing Continuous Deployment
+&amp;ldquo;&lt;a href=&#34;https://en.wikipedia.org/wiki/Continuous_delivery&#34;&gt;CD&lt;/a&gt;&amp;rdquo; if the ping,
+healthcheck, status, etc; endpoints change, it implies making changes in order
+to properly monitor the application, this creates a dependency or extra task
+apart from the &amp;ldquo;CD&amp;rdquo; process, therefore exists the need to detect any changes and
+automatically apply them upon request, this can be done easily with &lt;strong&gt;Epazote&lt;/strong&gt;.&lt;/p&gt;
 </description>
     </item>
     
