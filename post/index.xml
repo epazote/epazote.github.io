@@ -24,9 +24,8 @@ either the
 &lt;a href=&#34;https://en.wikipedia.org/wiki/HTTP_message_body&#34;&gt;body&lt;/a&gt;, it executes a command.&lt;/p&gt;
 
 &lt;p&gt;In most scenarios, is desired to apply a command directly to the application in
-cause, like a signal (&lt;code&gt;kill -HUP&lt;/code&gt;), or either a restart (&lt;code&gt;sv restart app&lt;/code&gt;),
-therefore in this case &lt;strong&gt;Epazote&lt;/strong&gt; and the application should be running on the
-same server.&lt;/p&gt;
+cause, like a signal (&lt;code&gt;kill -HUP&lt;/code&gt;), or either a restart, therefore in this
+case &lt;strong&gt;Epazote&lt;/strong&gt; and the application should be running on the same server.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Epazote&lt;/strong&gt; can also work in a standalone mode by only monitoring and sending
 alerts if desired.&lt;/p&gt;
