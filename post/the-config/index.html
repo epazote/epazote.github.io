@@ -8,7 +8,7 @@
 		<meta name="description" content="Automated HTTP (microservices) supervisor that implements a follow pid feature and multiple logging options">
 		<meta name="keywords" content="supervisor, http, microservices, logging, automatic">
 		<meta name="generator" content="Hugo 0.16" />
-		<title>🌿  epazote &middot; epazote</title>
+		<title>The config &middot; epazote</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://epazote.io/images/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://epazote.io/images/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="https://epazote.io/images/apple-icon-72x72.png">
@@ -44,6 +44,10 @@
 	
 
 	
+		<a href="https://github.com/epazote/">Github</a>
+		<a href="https://github.com/epazote/epazote/issues">Issues</a>
+		<a href='https://epazote.io/about'>About</a>
+	
 
 	
 	<a class="cta" href="https://epazote.io/index.xml">Subscribe</a>
@@ -53,7 +57,7 @@
         <section id="wrapper">
             <article class="post">
                 <header>
-                    <h1>🌿  epazote</h1>
+                    <h1>The config</h1>
                     <h2 class="headline">
                     <br>
                     
@@ -62,36 +66,70 @@
                 <section id="post-body">
                     
 
-<h1 id="what-is-epazote">What is epazote?</h1>
+<h1 id="the-config-section">The config section</h1>
 
-<p>An automated HTTP (microservices) supervisor.</p>
+<p>The <strong>config</strong> section is composed of:</p>
 
-<h2 id="why">Why ?</h2>
+<pre><code>- smtp (Email settings for sending notification)
+- scan (Paths used to find the file 'epazote.yml')
+</code></pre>
 
-<p>Because of the need to monitor with simplicity for example:</p>
+<p>Example:</p>
 
-<ul>
-<li>A simple check (Status 200 OK) every 30 seconds.</li>
-<li>Receive an email/http alert if the SSL certifciate is about to expire.</li>
-<li>Check if the application is serving the proper headers.</li>
-<li>Restart DB/App/etc based on headers or staus codes.</li>
-</ul>
+<pre><code>config:
+    smtp:
+        username: smtp@domain.tld
+        password: password
+        server: mail.example.com
+        port: 587
+        headers:
+            from: epazote@domain.tld
+            to: team@domain.tld ops@domain.tld etc@domain.tld
+            subject: &quot;[_name_, _because_]&quot;
+    scan:
+        paths:
+            - /arena/home/sites
+            - /home/apps
+        minutes: 5
+</code></pre>
 
-<hr />
+<h3 id="config-smtp">config - smtp</h3>
 
-<p>Once your site/application is up and running, it can become idle and
-unresponsive, your <a href="https://immortal.run">supervisor</a> will not notice
-this, since in most of the cases is just responsible for keeping your
-application process up and running no matter how it is behaving, therefore
-exists the need to monitor the status of the application and based on the
-responses take actions, here is where <strong>Epazote</strong> comes into action.</p>
+<p>Required to properly send alerts via email, all fields are required, the
+<code>headers</code> section can be extended with any desired key-pair values.</p>
 
-<p>When doing Continuous Deployment
-&ldquo;<a href="https://en.wikipedia.org/wiki/Continuous_delivery">CD</a>&rdquo; if the ping,
-healthcheck, status, etc; endpoints change, it implies making changes in order
-to properly monitor the application, this creates a dependency or extra task
-apart from the &ldquo;CD&rdquo; process, therefore exists the need to detect any changes and
-automatically apply them upon request, this can be done easily with <strong>Epazote</strong>.</p>
+<h3 id="config-smtp-subject">config - smtp - subject</h3>
+
+<p>The subject can be formed by using this keywords:</p>
+
+<pre><code class="language-sh">    _because_  _exit_ _name_ _output_ _status_ _url_
+</code></pre>
+
+<p>on the previous example, <code>subject: [_name_, _status_]</code> would transform to
+<code>[my service - 500]</code> the <code>name</code> has replaced by the service name, <code>my
+service</code> and <code>status</code> by the response status code <code>500</code> in this case.</p>
+
+<h3 id="config-scan">config - scan</h3>
+
+<p>Paths to scan every N <code>seconds</code>, <code>minutes</code> or <code>hours</code>, a search for
+services specified in a file call <code>epazote.yml</code> is made.</p>
+
+<p>The <strong>scan</strong> setting is optional however is very useful when doing Continues
+Deployments. for example if your code is automatically uploaded to the
+directory <code>/arena/home/sites/application_1</code> and your scan paths contain
+<code>/arena/home/sites</code>, you could simple upload on your application directory a
+file named <code>epazote.yml</code> with the service rules, thus achieving the deployment
+of your application and the supervising at the same time.</p>
+
+<h3 id="config-optional">config (optional)</h3>
+
+<p>As you may notice the <code>config</code> section contains mainly settings for sending
+alerts/notifications apart from the <code>scan</code> setting, therefore is totally
+optional, meaning that <strong>Epazote</strong> can still run and check your services without
+the need of the <code>config</code> section.</p>
+
+<p>If you want to automatically update/load services you will need the
+<code>config - scan</code> setting.</p>
 
                 </section>
             </article>
@@ -99,7 +137,7 @@ automatically apply them upon request, this can be done easily with <strong>Epaz
                 
                     
                 <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fepazote.io%2fabout%2f - %f0%9f%8c%bf%20%20epazote "><span class="icon-twitter"> Tweet</span></a>
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fepazote.io%2fpost%2fthe-config%2f - The%20config "><span class="icon-twitter"> Tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(

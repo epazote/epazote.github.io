@@ -8,7 +8,7 @@
 		<meta name="description" content="Automated HTTP (microservices) supervisor that implements a follow pid feature and multiple logging options">
 		<meta name="keywords" content="supervisor, http, microservices, logging, automatic">
 		<meta name="generator" content="Hugo 0.16" />
-		<title>how to use it &middot; epazote</title>
+		<title>How to use it &middot; epazote</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://epazote.io/images/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://epazote.io/images/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="https://epazote.io/images/apple-icon-72x72.png">
@@ -57,7 +57,7 @@
         <section id="wrapper">
             <article class="post">
                 <header>
-                    <h1>how to use it</h1>
+                    <h1>How to use it</h1>
                     <h2 class="headline">
                     <br>
                     
@@ -73,7 +73,12 @@
 or download a pre-compiled binary matching your operating system from here:
 <a href="https://bintray.com/nbari/epazote/epazote/_latestVersion">https://bintray.com/nbari/epazote/epazote/_latestVersion</a></p>
 
-<p>To compile from source, after downloading the sources use <code>make</code> to build the binary</p>
+<p>To compile from source, after downloading the sources use <code>make</code> to build the
+binary:</p>
+
+<pre><code>~/projects/go/src/github.com/epazote
+$ make
+</code></pre>
 
 <p><strong>Epazote</strong> was designed with simplicity in mind, as an easy tool for
  <a href="https://en.wikipedia.org/wiki/DevOps">DevOps</a> and as a complement to
@@ -107,7 +112,7 @@ or download a pre-compiled binary matching your operating system from here:
 
 <p><a href="https://asciinema.org/a/86545"><img src="https://asciinema.org/a/86545.png" alt="asciicast" /></a></p>
 
-<p>This basic setup will supervise every 5 seconds the service with name
+<p>This example, will supervise every 5 seconds the service with name
 <code>google</code>, it will do an HTTP GET to <code>http://www.google.com</code> and will expect
 an <code>302 Status code</code> if not,  it will <code>echo -n &quot;google down&quot;</code></p>
 
@@ -131,6 +136,9 @@ services:
     google:
         url: http://www.google.com
         minutes: 3
+        threshold:
+            healthy: 2 # consecutive successes
+            unhealthy: 2 # consecutive failures
         expect:
             status: 200
             if_not:
@@ -139,427 +147,22 @@ services:
 </code></pre>
 
 <p>In this case, every 3 minutes the service will be checked and in case of not
-receiving a <code>200 Status code</code>, besides executing the command: <code>echo -n
-&quot;google down&quot;</code> an email is going to be send to <code>team@domain.tld</code>, this
-because of the <code>notify: yes</code> setting.</p>
+receiving a <code>200 Status code</code> more than 2 times:</p>
+
+<pre><code>threshold:
+    unhealthy: 2
+</code></pre>
+
+<p>Besides executing the command: <code>echo -n &quot;google down&quot;</code> an email is going to be
+send to <code>team@domain.tld</code>, this because of the <code>notify: yes</code> setting.</p>
+
+<p>After getting 2 consecutive successful responses <code>200 status code</code>, an alert
+is also sent.</p>
 
 <h2 id="the-configuration-file">The configuration file</h2>
 
 <p>The configuration file (<a href="https://en.wikipedia.org/wiki/YAML">YAML formated</a>)
-consists of two parts, a <strong>config</strong> and a <strong>services</strong> (Key-value pairs).</p>
-
-<h2 id="the-config-section">The config section</h2>
-
-<p>The <strong>config</strong> section is composed of:</p>
-
-<pre><code>- smtp (Email settings for sending notification)
-- scan (Paths used to find the file 'epazote.yml')
-</code></pre>
-
-<p>Example:</p>
-
-<pre><code>config:
-    smtp:
-        username: smtp@domain.tld
-        password: password
-        server: mail.example.com
-        port: 587
-        headers:
-            from: epazote@domain.tld
-            to: team@domain.tld ops@domain.tld etc@domain.tld
-            subject: &quot;[_name_, _because_]&quot;
-    scan:
-        paths:
-            - /arena/home/sites
-            - /home/apps
-        minutes: 5
-</code></pre>
-
-<h3 id="config-smtp">config - smtp</h3>
-
-<p>Required to properly send alerts via email, all fields are required, the
-<code>headers</code> section can be extended with any desired key-pair values.</p>
-
-<h3 id="config-smtp-subject">config - smtp - subject</h3>
-
-<p>The subject can be formed by using this keywords: <code>_because_</code> <code>_exit_</code>
-<code>_name_</code> <code>_output_</code> <code>_status_</code> <code>_url_</code> on the previous example,
-<code>subject: [_name_, _status_]</code> would transform to <code>[my service - 500]</code>
-the <code>name</code> has replaced by the service name, <code>my service</code> and
-<code>status</code> by the response status code <code>500</code> in this case.</p>
-
-<h3 id="config-scan">config - scan</h3>
-
-<p>Paths to scan every N <code>seconds</code>, <code>minutes</code> or <code>hours</code>, a search for
-services specified in a file call <code>epazote.yml</code> is made.</p>
-
-<p>The <strong>scan</strong> setting is optional however is very useful when doing Continues
-Deployments. for example if your code is automatically uploaded to the
-directory <code>/arena/home/sites/application_1</code> and your scan paths contain
-<code>/arena/home/sites</code>, you could simple upload on your application directory a
-file named <code>epazote.yml</code> with the service rules, thus achieving the deployment
-of your application and the supervising at the same time.</p>
-
-<h3 id="config-optional">config (optional)</h3>
-
-<p>As you may notice the <code>config</code> section contains mainly settings for sending
-alerts/notifications apart from the <code>scan</code> setting, therefore is totally
-optional, meaning that <strong>Epazote</strong> can still run and check your services without
-the need of the <code>config</code> section.</p>
-
-<p>If you want to automatically update/load services you will need the
-<code>config - scan</code> setting.</p>
-
-<h2 id="the-services-section">The services section</h2>
-
-<p>Services are the main functionality of <strong>Epazote</strong>, is where the URL&rsquo;s and the
-rules based on the response are defined, since options vary from service to
-service, an example could help better to understand the setup:</p>
-
-<pre><code>services:
-    my service 1:
-        url: http://myservice.domain.tld/_healthcheck_
-        timeout: 5
-        seconds: 60
-        log: http://monitor.domain.tld
-        expect:
-            status: 200
-            header:
-                content-type: application/json
-            body: find this string on my site
-            if_not:
-                cmd: sv restart /services/my_service_1
-                notify: team@domain.tld
-                msg: |
-                    line 1 bla bla
-                    line 2
-        if_status:
-            500:
-                cmd: reboot
-            404:
-                cmd: sv restart /services/cache
-                msg: restarting cache
-                notify: team@domain.tld x@domain.tld
-        if_header:
-            x-amqp-kapputt:
-                cmd: restart abc
-                notify: bunny@domain.tld
-                msg: |
-                    The rabbit is angry
-                    &amp; hungry
-            x-db-kapputt:
-                cmd: svc restart /services/db
-
-    other service:
-        url: https://self-signed.ssl.tld/ping
-        header:
-            Origin: http://localhost
-            Accept-Encoding: gzip
-        insecure: true
-        minutes: 3
-
-    redirect service:
-        url: http://test.domain.tld/
-        follow: yes
-        hour: 1
-        expect:
-            status: 302
-            if_not:
-                cmd: service restart abc
-                notify: yes
-                emoji: 1F600-1F621
-
-    salt-master:
-        test: pgrep -f salt
-        if_not:
-            cmd: service restart salt_master
-            notify: operations@domain.tld
-</code></pre>
-
-<h3 id="services-name-of-service-string">services - name of service (string)</h3>
-
-<p>An unique string that identifies your service, in the above example, there are 3
-services named:
- - my service 1
- - other service
- - redirect service</p>
-
-<h3 id="services-url-string">services - url (string)</h3>
-
-<p>URL of the service to supervise</p>
-
-<h3 id="services-follow-boolean-true-false">services - follow (boolean true/false)</h3>
-
-<p>By default if a <a href="https://en.wikipedia.org/wiki/HTTP_302">302 Status code</a> is
-received, <strong>Epazote</strong> will not follow it, if you would like to follow all
-redirects, this setting must be set to <strong>true</strong>.</p>
-
-<h3 id="services-insecure-boolean-true-false">services - insecure (boolean true/false)</h3>
-
-<p>This option explicitly allows <strong>Epazote</strong> to perform &ldquo;insecure&rdquo; SSL connections.
-It will disable the certificate verification.</p>
-
-<h3 id="services-stop-int">services - stop (int)</h3>
-
-<p>Defines the number or times the <code>cmd</code> will be executed, by default the <code>cmd</code>
-is executed only once, with the intention to avoid indefinitely loops. If value
-is set to <code>-1</code> the <code>cmd</code> never stops. defaults to 0, <code>stop 2</code> will execute
-&ldquo;0, 1, 2&rdquo; (3 times) the <code>cmd</code>.</p>
-
-<h3 id="services-timeout-in-seconds-int">services - timeout in seconds (int)</h3>
-
-<p>Timeout specifies a time limit for the HTTP requests, A value of zero means no
-timeout, defaults to 5 seconds.</p>
-
-<h3 id="services-retry-limit-int">services - retry_limit (int)</h3>
-
-<p>Specifies the number of times to retry an request, defaults to 3.</p>
-
-<h3 id="services-retry-interval-int">services - retry_interval (int)</h3>
-
-<p>Specifies the time between attempts in milliseconds. The default value is 500 (0.5 seconds).</p>
-
-<h3 id="services-read-limit-int">services - read_limit (int)</h3>
-
-<p>Read only <code>N</code> number of bytes instead of the full
-body. This helps to make a more &ldquo;complete&rdquo; request and
-avoid getting an HTTP status code <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ts-el b-error-message.html#ts-elb-errorcodes-http408">408 when testing aws ELB</a>.</p>
-
-<h3 id="services-seconds-minutes-hours">services - seconds, minutes, hours</h3>
-
-<p>How often to check the service, the options are: (Only one should be used)
- - seconds N
- - minutes N
- - hours N</p>
-
-<p><code>N</code> should be an integer.</p>
-
-<h3 id="services-log-url">services - log (URL)</h3>
-
-<p>An URL to post all events, default disabled.</p>
-
-<h3 id="services-expect">services - expect</h3>
-
-<p>The <code>expect</code> block options are:
-- status (int)
-- header (key, value)
-- body   (regular expression)
-- if_not (Action block)</p>
-
-<h3 id="services-expect-status">services - expect - status</h3>
-
-<p>An Integer representing the expected <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP Status Code</a></p>
-
-<h3 id="services-expect-header-start-with-match">services - expect - header (start_with match)</h3>
-
-<p>A key-value map of expected headers, it can be only one or more.</p>
-
-<p>The headers will be considered valid if they starts with the required value,
-for example if you want to check for <code>Content-type: application/json; charset=utf-8</code>
-you can simple do something like:</p>
-
-<pre><code>header:
-    Content-Type: application/json
-</code></pre>
-
-<p>This helps to simplify the matching and useful in cases where the headers
-changes, for example: <code>Content-Range: bytes 100-64656926/64656927</code> can be
-matched with:</p>
-
-<pre><code>header:
-    Content-Range: bytes
-</code></pre>
-
-<h3 id="services-expect-body">services - expect - body</h3>
-
-<p>A <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a> used
-to match a string on the body of the site, use full in cases you want to ensure
-that the content delivered is always the same or keeps a pattern.</p>
-
-<h3 id="services-expect-how-it-works">services - expect (How it works)</h3>
-
-<p>The <code>expect</code> logic tries to implement a
-<a href="https://en.wikipedia.org/wiki/if_else">if-else</a> logic <code>status</code>, <code>header</code>,
-<code>body</code> are the <strong>if</strong> and the <code>if_not</code> block becomes the <strong>else</strong>.</p>
-
-<pre><code>if
-    status
-    header
-    body
-else:
-    if_not
-</code></pre>
-
-<p>In must cases only one option is required, check on the above example for the service named &ldquo;redirect service&rdquo;.</p>
-
-<p>In case that more than one option is used, this is the order in how they are evaluated, no meter how they where introduced on the configuration file:</p>
-
-<pre><code>1. body
-2. status
-3. header
-</code></pre>
-
-<p>The reason for this order is related to performance, at the end we want to
-monitor/supervise the services in an efficient way avoiding to waste extra
-resources, in must cases only the HTTP Headers are enough to take an action,
-therefore we don&rsquo;t need to read the full body page, because of this if no
-<code>body</code> is defined, <strong>Epazote</strong> will only read the Headers saving with this
-time and process time.</p>
-
-<h3 id="services-expect-if-not">services - expect - if_not</h3>
-
-<p><code>if_not</code> is a block with an action of what to do it we don&rsquo;t get what we where
-expecting (<code>expect</code>). See services - Actions</p>
-
-<h3 id="services-if-status-if-header">services - if_status  &amp; if_header</h3>
-
-<p>There maybe cases in where third-party dependencies are down and because of this
-your application could not be working properly, for this cases the <code>if_status</code>
-and <code>if_header</code> could be useful.</p>
-
-<p>For example if the database is your application could start responding an status
-code 500 or either a custom header and based on does values take execute an
-action:</p>
-
-<p>The format for <code>if_status</code> is a key-pair where key is an int representing an
-HTTP status code, and the value an Action option</p>
-
-<p>The format for <code>if_header</code> is a key-pair where key is a string of something
-you could relate/match and has in other if_X conditions, value is an Action.</p>
-
-<p>This are the only <code>if's</code> and the order of execution:
- 1. if_status
- 2. if_header
- 3. if_not</p>
-
-<p>This means that if a service uses <code>if_status</code> and <code>if_not</code>, it will
-evaluate first the <code>if_status</code> and execute an Action if required, in case
-an <code>if_status</code> and <code>if_header</code> are set, same applies, first is evaluated
-<code>if_status</code>, then <code>if_header</code> and last <code>if_not</code>.</p>
-
-<h2 id="services-actions">services - Actions</h2>
-
-<p>An Action has five options:
- - cmd
- - notify
- - msg
- - emoji
- - http</p>
-
-<p>They can be used all together, only one or either none.</p>
-
-<h3 id="services-actions-cmd-string">services - Actions - cmd (string)</h3>
-
-<p><code>cmd</code> Contains the command to be executed.</p>
-
-<h3 id="services-actions-notify-string">services - Actions - notify (string)</h3>
-
-<p><code>notify</code> Should contain <code>yes</code>, the email email address or addresses (space separated)
-of the recipients that will be notified when the action is executed.</p>
-
-<p>If the string is <code>yes</code> the global recipients will be used.</p>
-
-<h3 id="services-actions-msg-list">services - Actions - msg (list)</h3>
-
-<pre><code>msg:
-- send this if exit 0 (all OK)
-- send this if exit 1 (something is wrong)
-</code></pre>
-
-<p>Based on the exit status either msg[0] or msg[1] is used,</p>
-
-<h3 id="services-actions-emoji-list">services - Actions - emoji (list)</h3>
-
-<p><code>emoji</code> <a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> characters
-to be used in the subject, example:</p>
-
-<pre><code>emoji:
-- 1F600
-- 1F621
-</code></pre>
-
-<p>If services are OK they will use the first <code>1F600</code> if not they will
-use <code>1F621</code>, if set to <code>0</code> no emoji will be used. The idea behind using
-<a href="https://en.wikipedia.org/wiki/Emoticons_(Unicode_block)">unicode/emoji</a>
-is to cough attention faster and not just ignore the email thinking is spam.</p>
-
-<h3 id="service-actions-http-list-key-value">service - Actions - http (list(key, value))</h3>
-
-<p>A custom URL to GET/POST depending on the exit status, example:</p>
-
-<pre><code>http:
-- url: &quot;https://api.hipchat.com/v1/rooms/message?auth_token=your_token&amp;room_id=7&amp;from=Alerts&amp;message=service+OK+_name_+_because_&quot;
-- url: &quot;https://api.hipchat.com/&quot;
-    header:
-    Content-Type: application/x-www-form-urlencoded
-    data: |
-    room_id=10&amp;from=Alerts&amp;message=_name_+exit+code+_exit_
-    method: POST
-</code></pre>
-
-<p>When a service fails or returns an exit 1 the second url
-<code>https://api.hipchat.com/</code> with method <code>POST</code> and the custom <code>data</code>
-will be used, notice that all the ocurances on the data that are within an
-<code>_(key)_</code> will be replaced with the corresponding value, in this case:</p>
-
-<pre><code> room_id=10&amp;from=Alerts&amp;message=_name_+exit+code+_exit_
-</code></pre>
-
-<p>will be replaced with:</p>
-
-<pre><code> room_id=10&amp;from=Alerts&amp;message=SERVICE NAME+exit+code+0
-</code></pre>
-
-<p>When recovery the first url will be used, in this case will be a GET instead of a post, so:</p>
-
-<pre><code>https://api.hipchat.com/v1/rooms/message?auth_token=your_token&amp;room_id=7&amp;from=Alerts&amp;message=service+OK+_name_+_because_
-</code></pre>
-
-<p>becomes:</p>
-
-<pre><code>https://api.hipchat.com/v1/rooms/message?auth_token=your_token&amp;room_id=7&amp;from=Alerts&amp;message=service+OK+SERVICE+NAME+STATUS+200
-</code></pre>
-
-<blockquote>
-<p>notice that the <em>name</em>, <em>exit</em>, <em>because</em> are been replaced with the values of name, exit, because of the service.</p>
-</blockquote>
-
-<h2 id="services-test">services - Test</h2>
-
-<p><strong>Epazote</strong> It is mainly used for HTTP services, for supervising other
-applications that don&rsquo;t listen or accept HTTP connections, like a database,
-cache engine, etc. There are tools like
-<a href="https://cr.yp.to/daemontools.html">daemontools</a>,
-<a href="https://immortal.run">immortal</a> as already mentioned, even so, <strong>Epazote</strong>
-can eventually be used to execute an action based on the exit of a command
-for example:</p>
-
-<pre><code>salt-master:
-    test: pgrep -f salt
-    if_not:
-        cmd: service restart salt_master
-        notify: operations@domain.tld
-</code></pre>
-
-<p>In this case: <code>test: pgrep -f salt</code> will execute the <code>cmd</code> on the <code>if_not</code>
-block in case the exit code is &gt; 0, from the <code>pgrep</code> man page:</p>
-
-<pre><code>EXIT STATUS
-    The pgrep and pkill utilities return one of the following values upon exit:
-
-        0       One or more processes were matched.
-        1       No processes were matched.
-        2       Invalid options were specified on the command line.
-        3       An internal error occurred.
-</code></pre>
-
-<h2 id="extra-setup">Extra setup</h2>
-
-<p><em>green dots give some comfort</em> &ndash; Because of this when using the <code>log</code>
-option an extra service could be configure as a receiver for all the post
-that <strong>Epazote</strong> produce and based on the data obtained create a custom
-dashboard, something similar to: <a href="https://status.cloud.google.com/">https://status.cloud.google.com/</a> or
-<a href="http://status.aws.amazon.com/">http://status.aws.amazon.com/</a></p>
+consists of two parts, a <a href="/post/the-config/">config</a> and a <a href="/post/the-services">services</a> (Key-value pairs).</p>
 
                 </section>
             </article>
@@ -567,7 +170,7 @@ dashboard, something similar to: <a href="https://status.cloud.google.com/">http
                 
                     
                 <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fepazote.io%2fpost%2fhow-to-use-it%2f - how%20to%20use%20it "><span class="icon-twitter"> Tweet</span></a>
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fepazote.io%2fpost%2fhow-to-use-it%2f - How%20to%20use%20it "><span class="icon-twitter"> Tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(
@@ -588,14 +191,28 @@ dashboard, something similar to: <a href="https://status.cloud.google.com/">http
     
         
         <li>
-            <a href="https://epazote.io/post/how-to-use-it/">how to use it</a>
+            <a href="https://epazote.io/post/the-services/">The services</a>
         </li>
         
    
     
         
         <li>
-            <a href="https://epazote.io/post/how-it-works/">how it works</a>
+            <a href="https://epazote.io/post/the-config/">The config</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://epazote.io/post/how-to-use-it/">How to use it</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://epazote.io/post/how-it-works/">How it works</a>
         </li>
         
    

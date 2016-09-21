@@ -6,162 +6,18 @@
     <description>Recent content in Posts on epazote</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Sep 2016 17:30:27 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 21 Sep 2016 20:50:03 +0200</lastBuildDate>
     <atom:link href="https://epazote.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>how to use it</title>
-      <link>https://epazote.io/post/how-to-use-it/</link>
-      <pubDate>Wed, 21 Sep 2016 17:30:27 +0200</pubDate>
+      <title>The services</title>
+      <link>https://epazote.io/post/the-services/</link>
+      <pubDate>Wed, 21 Sep 2016 20:50:03 +0200</pubDate>
       
-      <guid>https://epazote.io/post/how-to-use-it/</guid>
+      <guid>https://epazote.io/post/the-services/</guid>
       <description>
 
-&lt;h1 id=&#34;how-to-use-it&#34;&gt;How to use it&lt;/h1&gt;
-
-&lt;p&gt;First you need to install &lt;strong&gt;Epazote&lt;/strong&gt;, either you can compile it from
-&lt;a href=&#34;https://github.com/epazote/epazote&#34;&gt;source&lt;/a&gt;
-or download a pre-compiled binary matching your operating system from here:
-&lt;a href=&#34;https://bintray.com/nbari/epazote/epazote/_latestVersion&#34;&gt;https://bintray.com/nbari/epazote/epazote/_latestVersion&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;To compile from source, after downloading the sources use &lt;code&gt;make&lt;/code&gt; to build the binary&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Epazote&lt;/strong&gt; was designed with simplicity in mind, as an easy tool for
- &lt;a href=&#34;https://en.wikipedia.org/wiki/DevOps&#34;&gt;DevOps&lt;/a&gt; and as a complement to
- infrastructure orchestration tools like &lt;a href=&#34;http://www.ansible.com/&#34;&gt;Ansible&lt;/a&gt; and
- &lt;a href=&#34;http://saltstack.com/&#34;&gt;SaltStack&lt;/a&gt;, because of this &lt;a href=&#34;http://www.yaml.org/&#34;&gt;YAML&lt;/a&gt;
- is used for the configuration files, avoiding with this, the learn of a new
- language or syntax and simplifying the setup.&lt;/p&gt;
-
-&lt;h2 id=&#34;basic-example&#34;&gt;Basic example&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;services:
-    google:
-        url: https://www.google.com
-        seconds: 5
-        expect:
-            status: 302
-            ssl:
-                hours: 72
-            if_not:
-                cmd: echo -n &amp;quot;google down&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To supervise &lt;code&gt;google&lt;/code&gt; you would run (basic.yml is a file containing the above code):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ epazote -f /path/to/yaml/file/basic.yml -d
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;-d is for debugging, will print all output to standard output.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/86545&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/86545.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This basic setup will supervise every 5 seconds the service with name
-&lt;code&gt;google&lt;/code&gt;, it will do an HTTP GET to &lt;code&gt;http://www.google.com&lt;/code&gt; and will expect
-an &lt;code&gt;302 Status code&lt;/code&gt; if not,  it will &lt;code&gt;echo -n &amp;quot;google down&amp;quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;ssl: hours: 72&lt;/code&gt; means to send an alert if the certificate is about to
-expire in the next 72 hours.&lt;/p&gt;
-
-&lt;p&gt;Extending the basic example for receiving notifications:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;config:
-    smtp:
-        username: smtp@domain.tld
-        password: password
-        server: mail.example.com
-        port: 587
-        headers:
-            from: you@domain.tld
-            to: team@domain.tld
-            subject: &amp;quot;[name - exit- status]&amp;quot;
-
-services:
-    google:
-        url: http://www.google.com
-        minutes: 3
-        expect:
-            status: 200
-            if_not:
-                cmd: echo -n &amp;quot;google down&amp;quot;
-                notify: yes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In this case, every 3 minutes the service will be checked and in case of not
-receiving a &lt;code&gt;200 Status code&lt;/code&gt;, besides executing the command: &lt;code&gt;echo -n
-&amp;quot;google down&amp;quot;&lt;/code&gt; an email is going to be send to &lt;code&gt;team@domain.tld&lt;/code&gt;, this
-because of the &lt;code&gt;notify: yes&lt;/code&gt; setting.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-configuration-file&#34;&gt;The configuration file&lt;/h2&gt;
-
-&lt;p&gt;The configuration file (&lt;a href=&#34;https://en.wikipedia.org/wiki/YAML&#34;&gt;YAML formated&lt;/a&gt;)
-consists of two parts, a &lt;strong&gt;config&lt;/strong&gt; and a &lt;strong&gt;services&lt;/strong&gt; (Key-value pairs).&lt;/p&gt;
-
-&lt;h2 id=&#34;the-config-section&#34;&gt;The config section&lt;/h2&gt;
-
-&lt;p&gt;The &lt;strong&gt;config&lt;/strong&gt; section is composed of:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;- smtp (Email settings for sending notification)
-- scan (Paths used to find the file &#39;epazote.yml&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;config:
-    smtp:
-        username: smtp@domain.tld
-        password: password
-        server: mail.example.com
-        port: 587
-        headers:
-            from: epazote@domain.tld
-            to: team@domain.tld ops@domain.tld etc@domain.tld
-            subject: &amp;quot;[_name_, _because_]&amp;quot;
-    scan:
-        paths:
-            - /arena/home/sites
-            - /home/apps
-        minutes: 5
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;config-smtp&#34;&gt;config - smtp&lt;/h3&gt;
-
-&lt;p&gt;Required to properly send alerts via email, all fields are required, the
-&lt;code&gt;headers&lt;/code&gt; section can be extended with any desired key-pair values.&lt;/p&gt;
-
-&lt;h3 id=&#34;config-smtp-subject&#34;&gt;config - smtp - subject&lt;/h3&gt;
-
-&lt;p&gt;The subject can be formed by using this keywords: &lt;code&gt;_because_&lt;/code&gt; &lt;code&gt;_exit_&lt;/code&gt;
-&lt;code&gt;_name_&lt;/code&gt; &lt;code&gt;_output_&lt;/code&gt; &lt;code&gt;_status_&lt;/code&gt; &lt;code&gt;_url_&lt;/code&gt; on the previous example,
-&lt;code&gt;subject: [_name_, _status_]&lt;/code&gt; would transform to &lt;code&gt;[my service - 500]&lt;/code&gt;
-the &lt;code&gt;name&lt;/code&gt; has replaced by the service name, &lt;code&gt;my service&lt;/code&gt; and
-&lt;code&gt;status&lt;/code&gt; by the response status code &lt;code&gt;500&lt;/code&gt; in this case.&lt;/p&gt;
-
-&lt;h3 id=&#34;config-scan&#34;&gt;config - scan&lt;/h3&gt;
-
-&lt;p&gt;Paths to scan every N &lt;code&gt;seconds&lt;/code&gt;, &lt;code&gt;minutes&lt;/code&gt; or &lt;code&gt;hours&lt;/code&gt;, a search for
-services specified in a file call &lt;code&gt;epazote.yml&lt;/code&gt; is made.&lt;/p&gt;
-
-&lt;p&gt;The &lt;strong&gt;scan&lt;/strong&gt; setting is optional however is very useful when doing Continues
-Deployments. for example if your code is automatically uploaded to the
-directory &lt;code&gt;/arena/home/sites/application_1&lt;/code&gt; and your scan paths contain
-&lt;code&gt;/arena/home/sites&lt;/code&gt;, you could simple upload on your application directory a
-file named &lt;code&gt;epazote.yml&lt;/code&gt; with the service rules, thus achieving the deployment
-of your application and the supervising at the same time.&lt;/p&gt;
-
-&lt;h3 id=&#34;config-optional&#34;&gt;config (optional)&lt;/h3&gt;
-
-&lt;p&gt;As you may notice the &lt;code&gt;config&lt;/code&gt; section contains mainly settings for sending
-alerts/notifications apart from the &lt;code&gt;scan&lt;/code&gt; setting, therefore is totally
-optional, meaning that &lt;strong&gt;Epazote&lt;/strong&gt; can still run and check your services without
-the need of the &lt;code&gt;config&lt;/code&gt; section.&lt;/p&gt;
-
-&lt;p&gt;If you want to automatically update/load services you will need the
-&lt;code&gt;config - scan&lt;/code&gt; setting.&lt;/p&gt;
-
-&lt;h2 id=&#34;the-services-section&#34;&gt;The services section&lt;/h2&gt;
+&lt;h1 id=&#34;the-services-section&#34;&gt;The services section&lt;/h1&gt;
 
 &lt;p&gt;Services are the main functionality of &lt;strong&gt;Epazote&lt;/strong&gt;, is where the URL&amp;rsquo;s and the
 rules based on the response are defined, since options vary from service to
@@ -207,12 +63,16 @@ service, an example could help better to understand the setup:&lt;/p&gt;
             Origin: http://localhost
             Accept-Encoding: gzip
         insecure: true
+        ssl:
+            hours: 48
         minutes: 3
 
     redirect service:
         url: http://test.domain.tld/
         follow: yes
         hour: 1
+        threshold:
+            unhealthy: 1
         expect:
             status: 302
             if_not:
@@ -250,6 +110,14 @@ redirects, this setting must be set to &lt;strong&gt;true&lt;/strong&gt;.&lt;/p&
 &lt;p&gt;This option explicitly allows &lt;strong&gt;Epazote&lt;/strong&gt; to perform &amp;ldquo;insecure&amp;rdquo; SSL connections.
 It will disable the certificate verification.&lt;/p&gt;
 
+&lt;h3 id=&#34;services-ssl-seconds-minutes-hours&#34;&gt;services - ssl (seconds, minutes, hours)&lt;/h3&gt;
+
+&lt;p&gt;Alert before the certificate expires:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssl:
+    hours: 24
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3 id=&#34;services-stop-int&#34;&gt;services - stop (int)&lt;/h3&gt;
 
 &lt;p&gt;Defines the number or times the &lt;code&gt;cmd&lt;/code&gt; will be executed, by default the &lt;code&gt;cmd&lt;/code&gt;
@@ -275,6 +143,17 @@ timeout, defaults to 5 seconds.&lt;/p&gt;
 &lt;p&gt;Read only &lt;code&gt;N&lt;/code&gt; number of bytes instead of the full
 body. This helps to make a more &amp;ldquo;complete&amp;rdquo; request and
 avoid getting an HTTP status code &lt;a href=&#34;http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ts-el b-error-message.html#ts-elb-errorcodes-http408&#34;&gt;408 when testing aws ELB&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;services-threshold-healthy-unhealthy&#34;&gt;services - threshold (healthy/unhealthy)&lt;/h3&gt;
+
+&lt;p&gt;Alert after the threshold has been reached, by default is set to 2:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;threshold:
+    healthy: 2
+    unhealth: 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If set to 0 it will be disabled.&lt;/p&gt;
 
 &lt;h3 id=&#34;services-seconds-minutes-hours&#34;&gt;services - seconds, minutes, hours&lt;/h3&gt;
 
@@ -515,7 +394,190 @@ dashboard, something similar to: &lt;a href=&#34;https://status.cloud.google.com
     </item>
     
     <item>
-      <title>how it works</title>
+      <title>The config</title>
+      <link>https://epazote.io/post/the-config/</link>
+      <pubDate>Wed, 21 Sep 2016 20:38:24 +0200</pubDate>
+      
+      <guid>https://epazote.io/post/the-config/</guid>
+      <description>
+
+&lt;h1 id=&#34;the-config-section&#34;&gt;The config section&lt;/h1&gt;
+
+&lt;p&gt;The &lt;strong&gt;config&lt;/strong&gt; section is composed of:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;- smtp (Email settings for sending notification)
+- scan (Paths used to find the file &#39;epazote.yml&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config:
+    smtp:
+        username: smtp@domain.tld
+        password: password
+        server: mail.example.com
+        port: 587
+        headers:
+            from: epazote@domain.tld
+            to: team@domain.tld ops@domain.tld etc@domain.tld
+            subject: &amp;quot;[_name_, _because_]&amp;quot;
+    scan:
+        paths:
+            - /arena/home/sites
+            - /home/apps
+        minutes: 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;config-smtp&#34;&gt;config - smtp&lt;/h3&gt;
+
+&lt;p&gt;Required to properly send alerts via email, all fields are required, the
+&lt;code&gt;headers&lt;/code&gt; section can be extended with any desired key-pair values.&lt;/p&gt;
+
+&lt;h3 id=&#34;config-smtp-subject&#34;&gt;config - smtp - subject&lt;/h3&gt;
+
+&lt;p&gt;The subject can be formed by using this keywords:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;    _because_  _exit_ _name_ _output_ _status_ _url_
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;on the previous example, &lt;code&gt;subject: [_name_, _status_]&lt;/code&gt; would transform to
+&lt;code&gt;[my service - 500]&lt;/code&gt; the &lt;code&gt;name&lt;/code&gt; has replaced by the service name, &lt;code&gt;my
+service&lt;/code&gt; and &lt;code&gt;status&lt;/code&gt; by the response status code &lt;code&gt;500&lt;/code&gt; in this case.&lt;/p&gt;
+
+&lt;h3 id=&#34;config-scan&#34;&gt;config - scan&lt;/h3&gt;
+
+&lt;p&gt;Paths to scan every N &lt;code&gt;seconds&lt;/code&gt;, &lt;code&gt;minutes&lt;/code&gt; or &lt;code&gt;hours&lt;/code&gt;, a search for
+services specified in a file call &lt;code&gt;epazote.yml&lt;/code&gt; is made.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;scan&lt;/strong&gt; setting is optional however is very useful when doing Continues
+Deployments. for example if your code is automatically uploaded to the
+directory &lt;code&gt;/arena/home/sites/application_1&lt;/code&gt; and your scan paths contain
+&lt;code&gt;/arena/home/sites&lt;/code&gt;, you could simple upload on your application directory a
+file named &lt;code&gt;epazote.yml&lt;/code&gt; with the service rules, thus achieving the deployment
+of your application and the supervising at the same time.&lt;/p&gt;
+
+&lt;h3 id=&#34;config-optional&#34;&gt;config (optional)&lt;/h3&gt;
+
+&lt;p&gt;As you may notice the &lt;code&gt;config&lt;/code&gt; section contains mainly settings for sending
+alerts/notifications apart from the &lt;code&gt;scan&lt;/code&gt; setting, therefore is totally
+optional, meaning that &lt;strong&gt;Epazote&lt;/strong&gt; can still run and check your services without
+the need of the &lt;code&gt;config&lt;/code&gt; section.&lt;/p&gt;
+
+&lt;p&gt;If you want to automatically update/load services you will need the
+&lt;code&gt;config - scan&lt;/code&gt; setting.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to use it</title>
+      <link>https://epazote.io/post/how-to-use-it/</link>
+      <pubDate>Wed, 21 Sep 2016 17:30:27 +0200</pubDate>
+      
+      <guid>https://epazote.io/post/how-to-use-it/</guid>
+      <description>
+
+&lt;h1 id=&#34;how-to-use-it&#34;&gt;How to use it&lt;/h1&gt;
+
+&lt;p&gt;First you need to install &lt;strong&gt;Epazote&lt;/strong&gt;, either you can compile it from
+&lt;a href=&#34;https://github.com/epazote/epazote&#34;&gt;source&lt;/a&gt;
+or download a pre-compiled binary matching your operating system from here:
+&lt;a href=&#34;https://bintray.com/nbari/epazote/epazote/_latestVersion&#34;&gt;https://bintray.com/nbari/epazote/epazote/_latestVersion&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To compile from source, after downloading the sources use &lt;code&gt;make&lt;/code&gt; to build the
+binary:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/projects/go/src/github.com/epazote
+$ make
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Epazote&lt;/strong&gt; was designed with simplicity in mind, as an easy tool for
+ &lt;a href=&#34;https://en.wikipedia.org/wiki/DevOps&#34;&gt;DevOps&lt;/a&gt; and as a complement to
+ infrastructure orchestration tools like &lt;a href=&#34;http://www.ansible.com/&#34;&gt;Ansible&lt;/a&gt; and
+ &lt;a href=&#34;http://saltstack.com/&#34;&gt;SaltStack&lt;/a&gt;, because of this &lt;a href=&#34;http://www.yaml.org/&#34;&gt;YAML&lt;/a&gt;
+ is used for the configuration files, avoiding with this, the learn of a new
+ language or syntax and simplifying the setup.&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-example&#34;&gt;Basic example&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;services:
+    google:
+        url: https://www.google.com
+        seconds: 5
+        expect:
+            status: 302
+            ssl:
+                hours: 72
+            if_not:
+                cmd: echo -n &amp;quot;google down&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To supervise &lt;code&gt;google&lt;/code&gt; you would run (basic.yml is a file containing the above code):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ epazote -f /path/to/yaml/file/basic.yml -d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;-d is for debugging, will print all output to standard output.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/86545&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/86545.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This example, will supervise every 5 seconds the service with name
+&lt;code&gt;google&lt;/code&gt;, it will do an HTTP GET to &lt;code&gt;http://www.google.com&lt;/code&gt; and will expect
+an &lt;code&gt;302 Status code&lt;/code&gt; if not,  it will &lt;code&gt;echo -n &amp;quot;google down&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;ssl: hours: 72&lt;/code&gt; means to send an alert if the certificate is about to
+expire in the next 72 hours.&lt;/p&gt;
+
+&lt;p&gt;Extending the basic example for receiving notifications:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config:
+    smtp:
+        username: smtp@domain.tld
+        password: password
+        server: mail.example.com
+        port: 587
+        headers:
+            from: you@domain.tld
+            to: team@domain.tld
+            subject: &amp;quot;[name - exit- status]&amp;quot;
+
+services:
+    google:
+        url: http://www.google.com
+        minutes: 3
+        threshold:
+            healthy: 2 # consecutive successes
+            unhealthy: 2 # consecutive failures
+        expect:
+            status: 200
+            if_not:
+                cmd: echo -n &amp;quot;google down&amp;quot;
+                notify: yes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this case, every 3 minutes the service will be checked and in case of not
+receiving a &lt;code&gt;200 Status code&lt;/code&gt; more than 2 times:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;threshold:
+    unhealthy: 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Besides executing the command: &lt;code&gt;echo -n &amp;quot;google down&amp;quot;&lt;/code&gt; an email is going to be
+send to &lt;code&gt;team@domain.tld&lt;/code&gt;, this because of the &lt;code&gt;notify: yes&lt;/code&gt; setting.&lt;/p&gt;
+
+&lt;p&gt;After getting 2 consecutive successful responses &lt;code&gt;200 status code&lt;/code&gt;, an alert
+is also sent.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-configuration-file&#34;&gt;The configuration file&lt;/h2&gt;
+
+&lt;p&gt;The configuration file (&lt;a href=&#34;https://en.wikipedia.org/wiki/YAML&#34;&gt;YAML formated&lt;/a&gt;)
+consists of two parts, a &lt;a href=&#34;https://epazote.io/post/the-config/&#34;&gt;config&lt;/a&gt; and a &lt;a href=&#34;https://epazote.io/post/the-services&#34;&gt;services&lt;/a&gt; (Key-value pairs).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How it works</title>
       <link>https://epazote.io/post/how-it-works/</link>
       <pubDate>Tue, 20 Sep 2016 21:28:39 +0200</pubDate>
       
