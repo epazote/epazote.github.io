@@ -21,6 +21,8 @@
 
 &lt;p&gt;An automated HTTP (microservices) supervisor.&lt;/p&gt;
 
+&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/86545&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/86545.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;why&#34;&gt;Why ?&lt;/h2&gt;
 
 &lt;p&gt;Because of the need to monitor with simplicity for example:&lt;/p&gt;
