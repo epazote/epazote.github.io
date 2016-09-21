@@ -1,0 +1,418 @@
+{
+  "version": 1,
+  "env": {
+    "SHELL": "/usr/local/bin/zsh",
+    "TERM": "xterm-256color"
+  },
+  "duration": 33.548435,
+  "stdout": [
+    [
+      0.01226,
+      "\u001b[?1049h\u001b(B\u001b[m\u001b[?1l\u001b>\u001b[H\u001b[2J\u001b[?12l\u001b[?25h\u001b[?1000l\u001b[?1002l\u001b[?1006l\u001b[?1005l\u001b]112\u0007\u001b]0;/tmp/epazote\u0007\u001b[?25l\u001b[2;1H\u001b[32mnbari \u001b[38;5;74m/tmp/epazote\u001b[39m                                                                                                                                                                                                                     \u001b[90m17:17:41\u001b[3;1H\u001b[35m$\u001b[39m   \u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\r\n\u001b[K\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 1.78 1.81 1.86\u001b[37m  17:17:42\u001b(B\u001b[m\u001b[1;1H\u001b[1;36r\u001b[3;3H\u001b[?12l\u001b[?25h\u001b[?2004h"
+    ],
+    [
+      0.007382,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 7.89 5.86 3.57\u001b[37m  17:17:42\u001b(B\u001b[m\u001b[3;3H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.850961,
+      "\u001b[2;36r\u001b[H\u001b[2;232H\u001b[90m17:17:42\u001b[2;1H\u001b[1;36r\u001b[H\u001b[3;3H\u001b(B\u001b[m"
+    ],
+    [
+      0.608961,
+      "\u001b[2;36r\u001b[H\u001b[3;3Hl\u001b[1;36r\u001b[H\u001b[3;4H"
+    ],
+    [
+      0.335965,
+      "\u001b[2;36r\u001b[H\u001b[3;3Hls\u001b[1;36r\u001b[H\u001b[3;5H"
+    ],
+    [
+      0.059485,
+      "\u001b[2;36r\u001b[H\u001b[2;232H\u001b[90m17:17:43\u001b[2;1H\u001b[1;36r\u001b[H\u001b[3;5H\u001b(B\u001b[m"
+    ],
+    [
+      0.652366,
+      "\r\n\u001b[?2004l"
+    ],
+    [
+      0.003386,
+      "\u001b]0;epazote: ls\u0007\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 7.89 5.86 3.57\u001b[37m  17:17:44\u001b(B\u001b[m\u001b[4;1H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.002783,
+      "\u001b[2;36r\u001b[H\u001b[3B\u001b[31mepazote\u001b[39m     epazote.yml\u001b[1;36r\u001b[H\u001b[4B"
+    ],
+    [
+      0.007536,
+      "\u001b]0;/tmp/epazote\u0007"
+    ],
+    [
+      0.00184,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 7.34 5.77 3.55\u001b[37m  17:17:44\u001b(B\u001b[m\u001b[5;1H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.004941,
+      "\u001b[2;36r\u001b[H\u001b[4B\u001b[32mnbari \u001b[38;5;74m/tmp/epazote\u001b[1;36r\u001b[H\u001b[5B\u001b(B\u001b[m\u001b[2;36r\u001b[H\u001b[5;232H\u001b[90m17:17:44\u001b[5;1H\u001b[1;36r\u001b[H\u001b[5B\u001b(B\u001b[m"
+    ],
+    [
+      0.000151,
+      "\u001b[2;36r\u001b[H\u001b[5B\u001b[K\r\n\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[6d\u001b[35m$\u001b[39m \u001b[K\u001b[1;36r\u001b[H\u001b[6;3H"
+    ],
+    [
+      2.6e-05,
+      "\u001b[?2004h"
+    ],
+    [
+      0.579478,
+      "\u001b[2;36r\u001b[H\u001b[6;3H.\u001b[1;36r\u001b[H\u001b[6;4H"
+    ],
+    [
+      0.425942,
+      "\u001b[2;36r\u001b[H\u001b[5;232H\u001b[90m17:17:45\u001b[5;1H\u001b[1;36r\u001b[H\u001b[6;4H\u001b(B\u001b[m"
+    ],
+    [
+      0.229639,
+      "\u001b[2;36r\u001b[H\u001b[6;3H./\u001b[1;36r\u001b[H\u001b[6;5H"
+    ],
+    [
+      0.208123,
+      "\u001b[2;36r\u001b[H\u001b[6;5He\u001b[1;36r\u001b[H\u001b[6;6H"
+    ],
+    [
+      0.112134,
+      "\u001b[2;36r\u001b[H\u001b[6;6Hp\u001b[1;36r\u001b[H\u001b[6;7H"
+    ],
+    [
+      0.451679,
+      "\u001b[2;36r\u001b[H\u001b[5;232H\u001b[90m17:17:46\u001b[5;1H\u001b[1;36r\u001b[H\u001b[6;7H\u001b(B\u001b[m"
+    ],
+    [
+      0.457828,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 7.34 5.77 3.55\u001b[37m  17:17:47\u001b(B\u001b[m\u001b[6;7H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.130498,
+      "\u001b[2;36r\u001b[H\u001b[6;7Ha\u001b[1;36r\u001b[H\u001b[6;8H"
+    ],
+    [
+      0.416508,
+      "\u001b[2;36r\u001b[H\u001b[5;232H\u001b[90m17:17:47\u001b[5;1H\u001b[1;36r\u001b[H\u001b[6;8H\u001b(B\u001b[m"
+    ],
+    [
+      0.483903,
+      "\u001b[2;36r\u001b[H\u001b[6;8Hzote\u001b[1m \u001b[1;36r\u001b[H\u001b[6;13H\u001b(B\u001b[m"
+    ],
+    [
+      0.521593,
+      "\u001b[2;36r\u001b[H\u001b[5;232H\u001b[90m17:17:48\u001b[5;1H\u001b[1;36r\u001b[H\u001b[6;13H\u001b(B\u001b[m"
+    ],
+    [
+      0.034052,
+      "\u001b[2;36r\u001b[H\u001b[6;12H -\u001b[1;36r\u001b[H\u001b[6;14H"
+    ],
+    [
+      0.247932,
+      "\u001b[2;36r\u001b[H\u001b[6;14Hh\u001b[1;36r\u001b[H\u001b[6;15H"
+    ],
+    [
+      0.271933,
+      "\r\n\u001b[?2004l"
+    ],
+    [
+      0.003224,
+      "\u001b]0;epazote: ./epazote -h\u0007\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 7.34 5.77 3.55\u001b[37m  17:17:49\u001b(B\u001b[m\u001b[7;1H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.012825,
+      "\u001b[2;36r\u001b[H\u001b[6BUsage of ./epazote:\r\n  -c\u001b[4CContinue on errors\r\n  -d\u001b[4CDebug mode\r\n  -f file.yml\r\n    \u001b[4CConfiguration file.yml (default \"epazote.yml\")\r\n  -v\u001b[4CPrint version: 59a071c\u001b[1;36r\u001b[H\u001b[12B"
+    ],
+    [
+      0.006886,
+      "\u001b]0;/tmp/epazote\u0007"
+    ],
+    [
+      0.004629,
+      "\u001b[2;36r\u001b[H\u001b[12B\u001b[32mnbari \u001b[38;5;74m/tmp/epazote\u001b[1;36r\u001b[H\u001b[13B\u001b(B\u001b[m\u001b[2;36r\u001b[H\u001b[13;232H\u001b[90m17:17:49\u001b[13;1H\u001b[1;36r\u001b[H\u001b[13B\u001b(B\u001b[m"
+    ],
+    [
+      0.000113,
+      "\u001b[2;36r\u001b[H\u001b[13B\u001b[K\r\n\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[1B\u001b[K\u001b[14d\u001b[31m$\u001b[39m \u001b[K\u001b[1;36r\u001b[H\u001b[14;3H\u001b[?2004h"
+    ],
+    [
+      1.005487,
+      "\u001b[2;36r\u001b[H\u001b[13;232H\u001b[90m17:17:50\u001b[13;1H\u001b[1;36r\u001b[H\u001b[14;3H\u001b(B\u001b[m"
+    ],
+    [
+      0.111299,
+      "\u001b[2;36r\u001b[H\u001b[14;3H.\u001b[1;36r\u001b[H\u001b[14;4H"
+    ],
+    [
+      0.239711,
+      "\u001b[2;36r\u001b[H\u001b[14;3H./\u001b[1;36r\u001b[H\u001b[14;5H"
+    ],
+    [
+      0.240014,
+      "\u001b[2;36r\u001b[H\u001b[14;5He\u001b[1;36r\u001b[H\u001b[14;6H"
+    ],
+    [
+      0.159973,
+      "\u001b[2;36r\u001b[H\u001b[14;6Hp\u001b[1;36r\u001b[H\u001b[14;7H"
+    ],
+    [
+      0.251391,
+      "\u001b[2;36r\u001b[H\u001b[13;232H\u001b[90m17:17:51\u001b[13;1H\u001b[1;36r\u001b[H\u001b[14;7H\u001b(B\u001b[m"
+    ],
+    [
+      0.492573,
+      "\u001b[2;36r\u001b[H\u001b[14;7Ha\u001b[1;36r\u001b[H\u001b[14;8H"
+    ],
+    [
+      0.36542,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 7.34 5.77 3.55\u001b[37m  17:17:52\u001b(B\u001b[m\u001b[14;8H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.008202,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 6.83 5.70 3.54\u001b[37m  17:17:52\u001b(B\u001b[m\u001b[14;8H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.038724,
+      "\u001b[2;36r\u001b[H\u001b[14;8Hzote\u001b[1m \u001b[1;36r\u001b[H\u001b[14;13H\u001b(B\u001b[m"
+    ],
+    [
+      0.097242,
+      "\u001b[2;36r\u001b[H\u001b[13;232H\u001b[90m17:17:52\u001b[13;1H\u001b[1;36r\u001b[H\u001b[14;13H\u001b(B\u001b[m"
+    ],
+    [
+      1.005686,
+      "\u001b[2;36r\u001b[H\u001b[13;232H\u001b[90m17:17:53\u001b[13;1H\u001b[1;36r\u001b[H\u001b[14;13H\u001b(B\u001b[m"
+    ],
+    [
+      0.949112,
+      "\u001b[2;36r\u001b[H\u001b[14;12H -\u001b[1;36r\u001b[H\u001b[14;14H"
+    ],
+    [
+      0.056187,
+      "\u001b[2;36r\u001b[H\u001b[13;232H\u001b[90m17:17:54\u001b[13;1H\u001b[1;36r\u001b[H\u001b[14;14H\u001b(B\u001b[m"
+    ],
+    [
+      0.191661,
+      "\u001b[2;36r\u001b[H\u001b[14;14Hf\u001b[1;36r\u001b[H\u001b[14;15H"
+    ],
+    [
+      0.607903,
+      "\u001b[2;36r\u001b[H\u001b[14;15H \u001b[1;36r\u001b[H\u001b[14;16H"
+    ],
+    [
+      0.202957,
+      "\u001b[2;36r\u001b[H\u001b[13;232H\u001b[90m17:17:55\u001b[13;1H\u001b[1;36r\u001b[H\u001b[14;16H\u001b(B\u001b[m"
+    ],
+    [
+      1.00289,
+      "\u001b[2;36r\u001b[H\u001b[13;232H\u001b[90m17:17:56\u001b[13;1H\u001b[1;36r\u001b[H\u001b[14;16H\u001b(B\u001b[m"
+    ],
+    [
+      0.07483,
+      "\u001b[2;36r\u001b[H\u001b[14;16Hepazote.yml -d\u001b[1;36r\u001b[H\u001b[14;29H"
+    ],
+    [
+      0.7656,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 6.83 5.70 3.54\u001b[37m  17:17:57\u001b(B\u001b[m\u001b[14;29H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.008122,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 6.44 5.63 3.53\u001b[37m  17:17:57\u001b(B\u001b[m\u001b[14;29H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.153614,
+      "\u001b[2;36r\u001b[H\u001b[13;232H\u001b[90m17:17:57\u001b[13;1H\u001b[1;36r\u001b[H\u001b[14;29H\u001b(B\u001b[m"
+    ],
+    [
+      0.432149,
+      "\r\n\u001b[?2004l"
+    ],
+    [
+      0.002207,
+      "\u001b]0;epazote: ./epazote -f epazote.yml -d\u0007"
+    ],
+    [
+      0.603053,
+      "\u001b[2;36r\u001b[H\u001b[14B2016/09/21 17:17:58 \u001b[32mAdding service: google URL: https://www.google.com\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 epazote \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                      [ M20160001.local ]\u001b[94m 2 users, load averages: 6.44 5.63 3.53\u001b[37m  17:17:58\u001b(B\u001b[m\u001b[1;1H\u001b[1;36r\u001b[15B\u001b[?12l\u001b[?25h\u001b[2;36r\u001b[H\u001b[15B2016/09/21 17:17:58 Epazote 🌿   on 1 services, scan paths:  [pid: 37413]"
+    ],
+    [
+      4.3e-05,
+      "\u001b[1;36r\u001b[H\u001b[16B"
+    ],
+    [
+      3.071645,
+      "\u001b[2;36r\u001b[H\u001b[16B2016/09/21 17:18:01 \u001b[32mReport: {\r\n  \"name\": \"google\",\r\n  \"url\": \"https://www.google.com\",\r\n  \"exit\": 0,\r\n  \"status\": 302,\r\n  \"because\": \"Status: 302\",\r\n  \"when\": \"2016-09-21T15:18:01Z\"\r\n}\u001b[39m, Count: 0\r\n\u001b[33mResponse Headers:\r\nAlt-Svc\u001b[39m: quic=\":443\"; ma=2592000; v=\"36,35,34,33,32\"\r\n\u001b[33mCache-Control\u001b[39m: private\r\n\u001b[33mContent-Length\u001b[39m: 259\r\n\u001b[33mContent-Type\u001b[39m: text/html; charset=UTF-8\r\n\u001b[33mDate\u001b[39m: Wed, 21 Sep 2016 15:18:01 GMT\r\n\u001b[33mLocation\u001b[39m: https://www.google.de/?gfe_rd=cr&ei=qaTiV56EEKzb8Aerrp3IAQ\u001b[1;36r\u001b[H\u001b[33d"
+    ],
+    [
+      0.730315,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 epazote \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                      [ M20160001.local ]\u001b[94m 2 users, load averages: 6.44 5.63 3.53\u001b[37m  17:18:02\u001b(B\u001b[m\u001b[33;1H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.00822,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 epazote \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                      [ M20160001.local ]\u001b[94m 2 users, load averages: 6.25 5.61 3.53\u001b[37m  17:18:02\u001b(B\u001b[m\u001b[33;1H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      2.262406,
+      "\u001b[2;36r\u001b[H\u001b[33d2016/09/21 17:18:04 \u001b[32mReport: {\r\n  \"name\": \"google\",\r\n  \"url\": \"https://www.google.com\",\r\n  \"exit\": 0,\u001b[39m\r\n\u001b[32m  \"status\": 302,\u001b[39m\r\n\u001b[32m  \"because\": \"Status: 302\",\u001b[39m\r\n\u001b[32m  \"when\": \"2016-09-21T15:18:04Z\"\u001b[39m\r\n\u001b[32m}\u001b[39m, Count: 0\r\n\u001b[33mResponse Headers:\u001b[39m\r\n\u001b[33mAlt-Svc\u001b[39m: quic=\":443\"; ma=2592000; v=\"36,35,34,33,32\"\r\n\u001b[33mCache-Control\u001b[39m: private\r\n\u001b[33mContent-Length\u001b[39m: 259\r\n\u001b[33mContent-Type\u001b[39m: text/html; charset=UTF-8\r\n\u001b[33mDate\u001b[39m: Wed, 21 Sep 2016 15:18:04 GMT\r\n\u001b[33mLocation\u001b[39m: https://www.google.de/?gfe_rd=cr&ei=rKTiV46LEK_b8AfkjpT4DQ\r\n\n\u001b[1;36r\u001b[H\u001b[36d"
+    ],
+    [
+      2.729619,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 epazote \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                      [ M20160001.local ]\u001b[94m 2 users, load averages: 6.25 5.61 3.53\u001b[37m  17:18:07\u001b(B\u001b[m\u001b[36;1H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.008403,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 epazote \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                      [ M20160001.local ]\u001b[94m 2 users, load averages: 5.75 5.51 3.51\u001b[37m  17:18:07\u001b(B\u001b[m\u001b[36;1H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.25697,
+      "\u001b[2;36r\u001b[H\u001b[36d2016/09/21 17:18:07 \u001b[32mReport: {\u001b[39m\r\n\u001b[32m  \"name\": \"google\",\u001b[39m\r\n\u001b[32m  \"url\": \"https://www.google.com\",\u001b[39m\r\n\u001b[32m  \"exit\": 0,\u001b[39m\r\n\u001b[32m  \"status\": 302,\u001b[39m\r\n\u001b[32m  \"because\": \"Status: 302\",\u001b[39m\r\n\u001b[32m  \"when\": \"2016-09-21T15:18:07Z\"\u001b[39m\r\n\u001b[32m}\u001b[39m, Count: 0\r\n\u001b[33mResponse Headers:\u001b[39m\r\n\u001b[33mAlt-Svc\u001b[39m: quic=\":443\"; ma=2592000; v=\"36,35,34,33,32\"\r\n\u001b[33mCache-Control\u001b[39m: private\r\n\u001b[33mContent-Length\u001b[39m: 259\r\n\u001b[33mContent-Type\u001b[39m: text/html; charset=UTF-8\r\n\u001b[33mDate\u001b[39m: Wed, 21 Sep 2016 15:18:07 GMT\r\n\u001b[33mLocation\u001b[39m: https://www.google.de/?gfe_rd=cr&ei=r6TiV9DjD6nb8AfRvK2QCQ\r\n\n\u001b[1;36r\u001b[H\u001b[36d"
+    ],
+    [
+      0.592255,
+      "\u001b[2;36r\u001b[H\u001b[36d^C\u001b[1;36r\u001b[H\u001b[36;3H"
+    ],
+    [
+      0.001092,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 5.75 5.51 3.51\u001b[37m  17:18:07\u001b(B\u001b[m\u001b[36;3H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.002488,
+      "\u001b[2;36r\u001b[H\u001b[36d\n\u001b[1;36r\u001b[H\u001b[36d"
+    ],
+    [
+      0.005286,
+      "\u001b]0;/tmp/epazote\u0007"
+    ],
+    [
+      0.008734,
+      "\u001b[2;36r\u001b[H\u001b[36d\u001b[32mnbari \u001b[38;5;74m/tmp/epazote\u001b[31m 10s\u001b[39m\r\n\u001b[1;36r\u001b[H\u001b[36d\u001b[2;36r\u001b[H\u001b[35;232H\u001b[90m17:18:07\u001b[35;1H\u001b[1;36r\u001b[H\u001b[36d\u001b(B\u001b[m"
+    ],
+    [
+      0.0001,
+      "\u001b[2;36r\u001b[H\u001b[36d\u001b[K\u001b[31m$\u001b[39m \u001b[K\u001b[1;36r\u001b[H\u001b[36;3H\u001b[?2004h"
+    ],
+    [
+      1.001852,
+      "\u001b[2;36r\u001b[H\u001b[35;232H\u001b[90m17:18:08\u001b[35;1H\u001b[1;36r\u001b[H\u001b[36;3H\u001b(B\u001b[m"
+    ],
+    [
+      0.420079,
+      "\u001b[2;36r\u001b[H\u001b[36;3Hc\u001b[1;36r\u001b[H\u001b[36;4H"
+    ],
+    [
+      0.103787,
+      "\u001b[2;36r\u001b[H\u001b[36;3Hca\u001b[1;36r\u001b[H\u001b[36;5H"
+    ],
+    [
+      0.072034,
+      "\u001b[2;36r\u001b[H\u001b[36;5Ht\u001b[1;36r\u001b[H\u001b[36;6H"
+    ],
+    [
+      0.055884,
+      "\u001b[2;36r\u001b[H\u001b[36;6H \u001b[1;36r\u001b[H\u001b[36;7H"
+    ],
+    [
+      0.353488,
+      "\u001b[2;36r\u001b[H\u001b[35;232H\u001b[90m17:18:09\u001b[35;1H\u001b[1;36r\u001b[H\u001b[36;7H\u001b(B\u001b[m"
+    ],
+    [
+      0.126521,
+      "\u001b[2;36r\u001b[H\u001b[36;7He\u001b[1;36r\u001b[H\u001b[36;8H"
+    ],
+    [
+      0.119899,
+      "\u001b[2;36r\u001b[H\u001b[36;8Hp\u001b[1;36r\u001b[H\u001b[36;9H"
+    ],
+    [
+      0.080183,
+      "\u001b[2;36r\u001b[H\u001b[36;9Ha\u001b[1;36r\u001b[H\u001b[36;10H"
+    ],
+    [
+      0.241899,
+      "\u001b[2;36r\u001b[H\u001b[36;10Hzote\u001b[1;36r\u001b[H\u001b[36;14H"
+    ],
+    [
+      0.434342,
+      "\u001b[2;36r\u001b[H\u001b[35;232H\u001b[90m17:18:10\u001b[35;1H\u001b[1;36r\u001b[H\u001b[36;14H\u001b(B\u001b[m"
+    ],
+    [
+      0.139746,
+      "\u001b[2;36r\u001b[H\u001b[36;14H.\u001b[1;36r\u001b[H\u001b[36;15H"
+    ],
+    [
+      0.157948,
+      "\u001b[2;36r\u001b[H\u001b[36;15Hyml\u001b[1m \u001b[1;36r\u001b[H\u001b[36;19H\u001b(B\u001b[m"
+    ],
+    [
+      0.466025,
+      "\u001b[2;36r\u001b[H\u001b[36;18H \r\n\u001b[1;36r\u001b[H\u001b[36d\u001b[?2004l"
+    ],
+    [
+      0.00372,
+      "\u001b]0;epazote: cat epazote.yml\u0007\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 5.75 5.51 3.51\u001b[37m  17:18:11\u001b(B\u001b[m\u001b[36;1H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.002097,
+      "\u001b[2;36r\u001b[H\u001b[36dservices:\r\n    google:\r\n        url: https://www.google.com\r\n        seconds: 3\r\n        expect:\r\n            status: 302\r\n            ssl:\r\n                hours: 72\r\n            if_not:\r\n                cmd: echo -n \"google down\"\r\n\u001b[1;36r\u001b[H\u001b[36d"
+    ],
+    [
+      0.008485,
+      "\u001b]0;/tmp/epazote\u0007"
+    ],
+    [
+      0.00411,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 5.37 5.44 3.49\u001b[37m  17:18:11\u001b(B\u001b[m\u001b[36;1H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.003734,
+      "\u001b[2;36r\u001b[H\u001b[36d\u001b[32mnbari \u001b[38;5;74m/tmp/epazote\u001b[39m\r\n\u001b[1;36r\u001b[H\u001b[36d\u001b[2;36r\u001b[H\u001b[35;232H\u001b[90m17:18:11\u001b[35;1H\u001b[1;36r\u001b[H\u001b[36d\u001b(B\u001b[m"
+    ],
+    [
+      0.000123,
+      "\u001b[2;36r\u001b[H\u001b[36d\u001b[K\u001b[35m$\u001b[39m \u001b[K\u001b[1;36r\u001b[H\u001b[36;3H\u001b[?2004h"
+    ],
+    [
+      0.329873,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 5.37 5.44 3.49\u001b[37m  17:18:12\u001b(B\u001b[m\u001b[36;3H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.672112,
+      "\u001b[2;36r\u001b[H\u001b[35;232H\u001b[90m17:18:12\u001b[35;1H\u001b[1;36r\u001b[H\u001b[36;3H\u001b(B\u001b[m"
+    ],
+    [
+      1.000702,
+      "\u001b[2;36r\u001b[H\u001b[35;232H\u001b[90m17:18:13\u001b[35;1H\u001b[1;36r\u001b[H\u001b[36;3H\u001b(B\u001b[m"
+    ],
+    [
+      0.921443,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 5.37 5.44 3.49\u001b[37m  17:18:14\u001b(B\u001b[m\u001b[36;3H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.007229,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 5.10 5.38 3.49\u001b[37m  17:18:14\u001b(B\u001b[m\u001b[36;3H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.072018,
+      "\u001b[2;36r\u001b[H\u001b[35;232H\u001b[90m17:18:14\u001b[35;1H\u001b[1;36r\u001b[H\u001b[36;3H\u001b(B\u001b[m"
+    ],
+    [
+      0.856365,
+      "\u001b[?25l\u001b[H\u001b[38;5;214m\u001b[48;5;16m[epazote] \u001b[38;5;231m\u001b[48;5;24m 0 zsh \u001b[38;5;214m\u001b[48;5;16m                                                                                                                                                          [ M20160001.local ]\u001b[94m 2 users, load averages: 5.10 5.38 3.49\u001b[37m  17:18:15\u001b(B\u001b[m\u001b[36;3H\u001b[?12l\u001b[?25h"
+    ],
+    [
+      0.000438,
+      "\u001b[1;36r\u001b(B\u001b[m\u001b[?1l\u001b>\u001b[H\u001b[2J\u001b[?2004l\u001b]112\u0007\u001b[?12l\u001b[?25h\u001b[?1000l\u001b[?1002l\u001b[?1006l\u001b[?1005l\u001b[?1049l"
+    ],
+    [
+      0.000613,
+      "[detached (from session epazote)]\r\n"
+    ]
+  ],
+  "width": 239,
+  "title": null,
+  "height": 36,
+  "command": "tmux attach -t epazote"
+}
