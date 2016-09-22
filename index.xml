@@ -97,7 +97,7 @@ or download a pre-compiled binary matching your operating system from here:
 &lt;p&gt;To compile from source, after downloading the sources use &lt;code&gt;make&lt;/code&gt; to build the
 binary:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;~/projects/go/src/github.com/epazote
+&lt;pre&gt;&lt;code&gt;~/projects/go/src/github.com/epazote/epazote
 $ make
 &lt;/code&gt;&lt;/pre&gt;
 
