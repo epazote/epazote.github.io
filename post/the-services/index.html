@@ -206,12 +206,15 @@ avoid getting an HTTP status code <a href="http://docs.aws.amazon.com/ElasticLoa
 
 <h3 id="services-seconds-minutes-hours">services - seconds, minutes, hours</h3>
 
-<p>How often to check the service, the options are: (Only one should be used)
- - seconds N
- - minutes N
- - hours N</p>
+<p>How often to check the service, the options are: (Only one should be used)</p>
 
-<p><code>N</code> should be an integer.</p>
+<ul>
+<li>seconds N</li>
+<li>minutes N</li>
+<li>hours N</li>
+</ul>
+
+<p><code>N</code> should be an integer,  defaults to 60 seconds.</p>
 
 <h3 id="services-log-url">services - log (URL)</h3>
 

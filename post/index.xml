@@ -365,12 +365,15 @@ avoid getting an HTTP status code &lt;a href=&#34;http://docs.aws.amazon.com/Ela
 
 &lt;h3 id=&#34;services-seconds-minutes-hours&#34;&gt;services - seconds, minutes, hours&lt;/h3&gt;
 
-&lt;p&gt;How often to check the service, the options are: (Only one should be used)
- - seconds N
- - minutes N
- - hours N&lt;/p&gt;
+&lt;p&gt;How often to check the service, the options are: (Only one should be used)&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;N&lt;/code&gt; should be an integer.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;seconds N&lt;/li&gt;
+&lt;li&gt;minutes N&lt;/li&gt;
+&lt;li&gt;hours N&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;N&lt;/code&gt; should be an integer,  defaults to 60 seconds.&lt;/p&gt;
 
 &lt;h3 id=&#34;services-log-url&#34;&gt;services - log (URL)&lt;/h3&gt;
 
