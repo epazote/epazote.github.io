@@ -149,7 +149,7 @@ expire in the next 72 hours.&lt;/p&gt;
         headers:
             from: you@domain.tld
             to: team@domain.tld
-            subject: &amp;quot;[name - exit- status]&amp;quot;
+            subject: &amp;quot;[_name_, _because_]&amp;quot;
 
 services:
     google:
