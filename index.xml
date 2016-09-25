@@ -397,7 +397,7 @@ avoid getting an HTTP status code &lt;a href=&#34;http://docs.aws.amazon.com/Ela
 
 &lt;h3 id=&#34;services-threshold-healthy-unhealthy&#34;&gt;services - threshold (healthy/unhealthy)&lt;/h3&gt;
 
-&lt;p&gt;Alert after the threshold has been reached, by default is set to 2:&lt;/p&gt;
+&lt;p&gt;Alert after the threshold has been reached, by default is set to 0 (disabled):&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;threshold:
     healthy: 2
