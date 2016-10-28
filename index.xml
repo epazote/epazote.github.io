@@ -2,10 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>epazote</title>
-    <link>https://epazote.io/</link>
+    <link>https://epazote.io/index.xml</link>
     <description>Recent content on epazote</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright> </copyright>
     <lastBuildDate>Tue, 20 Sep 2016 21:26:25 +0200</lastBuildDate>
     <atom:link href="https://epazote.io/index.xml" rel="self" type="application/rss+xml" />
     
